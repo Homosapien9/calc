@@ -1,7 +1,7 @@
 import math
 
 print("Welcome to Scientific Calculator")
-print("made by Jatan Shah")
+print("Made by Jatan Shah")
 print("Select operation:")
 print("1. Add")
 print("2. Subtract")
@@ -14,80 +14,70 @@ print("8. Sine")
 print("9. Cosine")
 print("10. Tangent")
 print("11. Factorial")
-print("12. Modulus")
+print("12. Remainder")
 print("13. Exponential (e^x)")
-print("14. Degrees to Radians")
-print("15. Radians to Degrees")
 
 while True:
-    choice = input("\nEnter choice (1-15) or 'q' to quit: ")
+    choice = input("\nEnter choice (1-13) or 'q' to quit: ")
 
     if choice == 'q':
         print("Exiting the calculator. Goodbye!")
         break
 
     if choice in ['1', '2', '3', '4', '5', '12']:
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
 
         if choice == '1':
-            print("{num1} + {num2} = {num1 + num2}")
+            print("The result of adding", num1, "and", num2, "is", num1 + num2)
         elif choice == '2':
-            print("{num1} - {num2} = {num1 - num2}")
+            print("The result of subtracting", num2, "from", num1, "is", num1 - num2)
         elif choice == '3':
-            print("{num1} * {num2} = {num1 * num2}")
+            print("The result of multiplying", num1, "and", num2, "is", num1 * num2)
         elif choice == '4':
             if num2 == 0:
-                print("Error! Division by zero.")
+                print("Error! Division by zero is not allowed.")
             else:
-                print("{num1} / {num2} = {num1 / num2}")
+                print("The result of dividing", num1, "by", num2, "is", num1 / num2)
         elif choice == '5':
-            print("{num1} ^ {num2} = {num1 ** num2}")
+            print("The result of", num1, "raised to the power of", num2, "is", num1 ** num2)
         elif choice == '12':
-            print("{num1} % {num2} = {num1 % num2}")
+            print("The remainder when", num1, "is divided by", num2, "is", num1 % num2)
 
     elif choice == '6':
-        num = float(input("Enter number: "))
+        num = float(input("Enter a number: "))
         if num < 0:
-            print("Error! Cannot calculate the square root of a negative number.")
+            print("Error! The square root of a negative number is not defined.")
         else:
-            print("Square root of {num} = {math.sqrt(num)}")
+            print("The square root of", num, "is", math.sqrt(num))
 
     elif choice == '7':
-        num = float(input("Enter number: "))
-        base = float(input("Enter base: "))
+        num = float(input("Enter a number: "))
+        base = float(input("Enter the base: "))
         if num <= 0 or base <= 0 or base == 1:
             print("Error! Logarithm requires positive numbers, and the base cannot be 1.")
         else:
-            print("Logarithm of {num} base {base} = {math.log(num, base)}")
+            print("The logarithm of", num, "with base", base, "is", math.log(num, base))
 
     elif choice in ['8', '9', '10']:
-        angle = float(input("Enter angle in degrees: "))
+        angle = float(input("Enter the angle in degrees: "))
         if choice == '8':
-            print("Sine of {angle} = {math.sin(math.radians(angle))}")
+            print("The sine of", angle, "degrees is", math.sin(math.radians(angle)))
         elif choice == '9':
-            print("Cosine of {angle} = {math.cos(math.radians(angle))}")
+            print("The cosine of", angle, "degrees is", math.cos(math.radians(angle)))
         elif choice == '10':
-            print("Tangent of {angle} = {math.tan(math.radians(angle))}")
+            print("The tangent of", angle, "degrees is", math.tan(math.radians(angle)))
 
     elif choice == '11':
         num = int(input("Enter a non-negative integer: "))
         if num < 0:
-            print("Error! Factorial of a negative number is undefined.")
+            print("Error! The factorial of a negative number is not defined.")
         else:
-            print("{num}! = {math.factorial(num)}")
+            print("The factorial of", num, "is", math.factorial(num))
 
     elif choice == '13':
-        num = float(input("Enter number: "))
-        print("e^{num} = {math.exp(num)}")
-
-    elif choice == '14':
-        degrees = float(input("Enter angle in degrees: "))
-        print("{degrees} degrees = {math.radians(degrees)} radians")
-
-    elif choice == '15':
-        radians = float(input("Enter angle in radians: "))
-        print("{radians} radians = {math.degrees(radians)} degrees")
+        num = float(input("Enter a number: "))
+        print("The value of e^", num, "is", math.exp(num))
 
     else:
-        print("Invalid input. Please enter a number between 1 and 15.")
+        print("Invalid input. Please enter a number between 1 and 13.")
