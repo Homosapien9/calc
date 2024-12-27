@@ -1,93 +1,92 @@
 import math
 
-def add(x, y):
-    return x + y
+print("Welcome to the Advanced Scientific Calculator")
+print("Select operation:")
+print("1. Add")
+print("2. Subtract")
+print("3. Multiply")
+print("4. Divide")
+print("5. Power")
+print("6. Square Root")
+print("7. Logarithm")
+print("8. Sine")
+print("9. Cosine")
+print("10. Tangent")
+print("11. Factorial")
+print("12. Modulus")
+print("13. Exponential (e^x)")
+print("14. Degrees to Radians")
+print("15. Radians to Degrees")
 
-def subtract(x, y):
-    return x - y
+while True:
+    choice = input("\nEnter choice (1-15) or 'q' to quit: ")
 
-def multiply(x, y):
-    return x * y
+    if choice == 'q':
+        print("Exiting the calculator. Goodbye!")
+        break
 
-def divide(x, y):
-    if y == 0:
-        return "Error! Division by zero."
-    return x / y
+    if choice in ['1', '2', '3', '4', '5', '12']:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
 
-def power(x, y):
-    return x ** y
+        if choice == '1':
+            print(f"{num1} + {num2} = {num1 + num2}")
+        elif choice == '2':
+            print(f"{num1} - {num2} = {num1 - num2}")
+        elif choice == '3':
+            print(f"{num1} * {num2} = {num1 * num2}")
+        elif choice == '4':
+            if num2 == 0:
+                print("Error! Division by zero.")
+            else:
+                print(f"{num1} / {num2} = {num1 / num2}")
+        elif choice == '5':
+            print(f"{num1} ^ {num2} = {num1 ** num2}")
+        elif choice == '12':
+            print(f"{num1} % {num2} = {num1 % num2}")
 
-def square_root(x):
-    return math.sqrt(x)
-
-def logarithm(x, base):
-    return math.log(x, base)
-
-def sine(x):
-    return math.sin(math.radians(x))
-
-def cosine(x):
-    return math.cos(math.radians(x))
-
-def tangent(x):
-    return math.tan(math.radians(x))
-
-def main():
-    print("Welcome to the Scientific Calculator")
-    print("Select operation:")
-    print("1. Add")
-    print("2. Subtract")
-    print("3. Multiply")
-    print("4. Divide")
-    print("5. Power")
-    print("6. Square Root")
-    print("7. Logarithm")
-    print("8. Sine")
-    print("9. Cosine")
-    print("10. Tangent")
-    
-    while True:
-        choice = input("Enter choice (1-10) or 'q' to quit: ")
-
-        if choice == 'q':
-            print("Exiting the calculator. Goodbye!")
-            break
-
-        if choice in ['1', '2', '3', '4', '5']:
-            num1 = float(input("Enter first number: "))
-            num2 = float(input("Enter second number: "))
-
-            if choice == '1':
-                print(f"{num1} + {num2} = {add(num1, num2)}")
-            elif choice == '2':
-                print(f"{num1} - {num2} = {subtract(num1, num2)}")
-            elif choice == '3':
-                print(f"{num1} * {num2} = {multiply(num1, num2)}")
-            elif choice == '4':
-                print(f"{num1} / {num2} = {divide(num1, num2)}")
-            elif choice == '5':
-                print(f"{num1} ^ {num2} = {power(num1, num2)}")
-
-        elif choice == '6':
-            num = float(input("Enter number: "))
-            print(f"Square root of {num} = {square_root(num)}")
-
-        elif choice == '7':
-            num = float(input("Enter number: "))
-            base = float(input("Enter base: "))
-            print(f"Logarithm of {num} base {base} = {logarithm(num, base)}")
-
-        elif choice == '8':
-            angle = float(input("Enter angle in degrees: "))
-            print(f"Sine of {angle} = {sine(angle)}")
-
-        elif choice == '9':
-            angle = float(input("Enter angle in degrees: "))
-            print(f"Cosine of {angle} = {cosine(angle)}")
-
-        elif choice == '10':
-            angle = float(input("Enter angle in degrees: "))
-            print(f"Tangent of {angle} = {tangent(angle)}")
-
+    elif choice == '6':
+        num = float(input("Enter number: "))
+        if num < 0:
+            print("Error! Cannot calculate the square root of a negative number.")
         else:
-            print("Invalid input. Please enter a number between 1 and 10.")
+            print(f"Square root of {num} = {math.sqrt(num)}")
+
+    elif choice == '7':
+        num = float(input("Enter number: "))
+        base = float(input("Enter base: "))
+        if num <= 0 or base <= 0 or base == 1:
+            print("Error! Logarithm requires positive numbers, and the base cannot be 1.")
+        else:
+            print(f"Logarithm of {num} base {base} = {math.log(num, base)}")
+
+    elif choice in ['8', '9', '10']:
+        angle = float(input("Enter angle in degrees: "))
+        if choice == '8':
+            print(f"Sine of {angle} = {math.sin(math.radians(angle))}")
+        elif choice == '9':
+            print(f"Cosine of {angle} = {math.cos(math.radians(angle))}")
+        elif choice == '10':
+            print(f"Tangent of {angle} = {math.tan(math.radians(angle))}")
+
+    elif choice == '11':
+        num = int(input("Enter a non-negative integer: "))
+        if num < 0:
+            print("Error! Factorial of a negative number is undefined.")
+        else:
+            print(f"{num}! = {math.factorial(num)}")
+
+    elif choice == '13':
+        num = float(input("Enter number: "))
+        print(f"e^{num} = {math.exp(num)}")
+
+    elif choice == '14':
+        degrees = float(input("Enter angle in degrees: "))
+        print(f"{degrees} degrees = {math.radians(degrees)} radians")
+
+    elif choice == '15':
+        radians = float(input("Enter angle in radians: "))
+        print(f"{radians} radians = {math.degrees(radians)} degrees")
+
+    else:
+        print("Invalid input. Please enter a number between 1 and 15.")
